@@ -29,18 +29,20 @@ export class AuthService {
 
     const user = await this.databaseService.user.create({
       data: {
-        email,
+        name: registerDto.name,
+        email: registerDto.email,
         password: hashedPassword,
-        name,
-      },
-      select: {
-        id: true,
-        name: true,
-        email: true,
       },
     });
 
-    return user;
+    const payload = { userId: user.id, email: user.email };
+    const access_token = this.jwtService.sign(payload);
+
+    const { password: _, ...result } = user;
+    return {
+      access_token,
+      user: result,
+    };
   }
 
     async login(loginDto: LoginDto) {

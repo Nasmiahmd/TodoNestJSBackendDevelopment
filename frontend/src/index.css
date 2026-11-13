@@ -41,4 +41,25 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* AuthPage */
+  .top-portion{
+    @apply flex flex-col items-start px-12
+  }
+
+  .auth-input-card{
+    @apply flex flex-col justify-center items-center gap-4 mt-12
+  }
+
+  .auth-inputs{
+    @apply w-[400px] h-[55px] px-4 rounded-lg bg-gray-50 hover:bg-white focus:bg-white ring-1 ring-gray-500 shadow-gray-600 shadow hover:ring-gray-700 focus:ring-gray-700 text-xl
+  }
+
+  .auth-btn{
+    @apply w-[400px] h-[55px] bg-sky-600 rounded-lg
+  }
+
+  .auth-choice{
+    @apply w-[400px] h-[55px] flex items-center justify-end pe-4
+  }
 }

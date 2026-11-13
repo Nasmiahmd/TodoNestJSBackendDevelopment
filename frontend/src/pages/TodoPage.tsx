@@ -102,7 +102,7 @@ const HomePage = () => {
   })
 
   return (
-    <div className="outer-card">
+    <div className="outer-card bg-violet-100">
       <div className="inner-card">
         {/* Topper Header */}
         <div className="w-full h-35 bg-indigo-600">

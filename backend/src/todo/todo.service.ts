@@ -49,17 +49,16 @@ export class TodoService {
   }
 
   async remove(id: string, userId: string) {
-    // const todo = await this.databaseService.todo.findFirst({
-    //   where: { id, userId },
-    // });
+    const todo = await this.databaseService.todo.findFirst({
+      where: { id, userId },
+    });
 
-    // if (!todo) {
-    //   throw new NotFoundException(
-    //     `Todo with ID ${id} not found or access denied.`,
-    //   );
-    // }
+    if (!todo) {
+      throw new NotFoundException(`Todo with ID ${id} not found or access denied.`);
+    }
+
     return this.databaseService.todo.delete({
-      where: {id, userId},
+      where: { id },
     });
   }
 }

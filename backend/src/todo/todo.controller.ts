@@ -45,12 +45,12 @@ export class TodoController {
   // }
 
   @Patch(':id')
-  update(@Param('id') id: string, userId: string, @Body() updateTodoDto: UpdateTodoDto) {
+  update(@Request() req: AuthenticatedRequest, @Param('id') id: string, userId: string, @Body() updateTodoDto: UpdateTodoDto) {
     return this.todoService.update(id, userId, updateTodoDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string, userId: string) {
+  remove(@Request() req: AuthenticatedRequest, @Param('id') id: string, userId: string) {
     return this.todoService.remove(id, userId);
   }
 }

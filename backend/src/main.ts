@@ -11,6 +11,7 @@ async function bootstrap() {
     forbidNonWhitelisted: true, // Throws an error if extra properties are sent
     transform: true, // Automatically transforms payloads to DTO class instances
   }));
+  app.enableCors()
   await app.listen(process.env.PORT ?? 3000);
 }
 await bootstrap();
